@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Check if we should run full validation
+# Run full validation if:
+# 1. Environment variable FULL_VALIDATION is set
+# 2. The mcp-server-list.json is being modified
+
+should_run_full_validation() {
+    # Check environment variable
+    if [ "$FULL_VALIDATION" = "true" ]; then
+        echo "🔍 FULL_VALIDATION environment variable is set"
+        return 0
+    fi
+    
+    # Check if mcp-server-list.json is being modified
+    if git diff --cached --name-only | grep -q "docs/mcp-server-list.json"; then
+        echo "🔍 mcp-server-list.json is being modified, running full validation"
+        return 0
+    fi
+    
+    return 1
+}
+
+# Run validation
+if should_run_full_validation; then
+    echo "🚀 Running FULL validation (includes all directories)..."
+    npm run validate-all-full
+    if [ $? -eq 0 ]; then
+        echo "✅ Full validation completed successfully"
+    else
+        echo "❌ Full validation failed"
+        exit 1
+    fi
+else
+    echo "🔍 Running incremental validation (modified directories only)..."
+    npm run validate-all
+fi
