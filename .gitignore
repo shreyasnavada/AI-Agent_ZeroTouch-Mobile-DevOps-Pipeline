@@ -1,49 +1,32 @@
-# Dependencies
+# Build files (too large for GitHub)
+Mobile_App_Builds/**/*.apk
+Mobile_App_Builds/**/*.ipa
+
+# Generated QR codes (regenerated each run)
+App Build QR codes/**/*.png
+DiawiBuildUploader/*.png
+
+# Extracted URLs (temporary)
+extracted_urls/*.txt
+
+# Node.js
 node_modules/
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-yarn.lock
 
-# TypeScript
-dist/
-build/
-*.tsbuildinfo
-
-# IDE and editors
-.idea/
-.vscode/
-*.swp
-*.swo
-.DS_Store
-.cursor/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Logs
-logs/
+# Maven
+target/
 *.log
 
-# Testing
-coverage/
+# Environment files
+.env
+*.env
 
-# Misc
-.tmp/
-.temp/
+# Windows
+Thumbs.db
+Desktop.ini
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.iml
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
-
-# Virtual environments
-.venv
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
