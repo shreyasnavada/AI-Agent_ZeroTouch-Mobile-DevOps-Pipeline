@@ -7,7 +7,7 @@ What it does:
    Downloads and renames APK/IPA files with Vader naming convention
    Generates QR codes via automated browser upload to distribution platform
    Extracts download URLs directly from web pages during QR generation
-   Emails QR codes to development team with build details and attachments
+   Emails QR codes to development team and QA Teams with build details and attachments
    Notifies Slack channel with build metadata and clickable download links
 
 Technologies:
@@ -20,12 +20,4 @@ Screenshots of Slack Notifications
 <img width="1273" height="591" alt="image" src="https://github.com/user-attachments/assets/2ef0e66e-0af0-40a5-bab8-e0b7c525e1e0" />
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Flowchart
 
-┌─────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌──────┐
-│  START  │───▶│    PICK     │───▶│  DOWNLOAD   │───▶│  GENERATE   │───▶│ AUTO EMAIL  │───▶│ AUTO SHARE  │───▶│ DONE │
-└─────────┘    │   LATEST    │    │   BUILD     │    │ QR CODES &  │    │ DELIVERY    │    │BUILD LINKS  │    └──────┘
-               │   BUILDS    │    │ TO LOCAL    │    │BUILD LINKS  │    │OF QR CODES  │    │TO SLACK     │
-               │FROM ARTIFAC │    │             │    │             │    │             │    │  CHANNEL    │
-               │   TORY      │    │             │    │             │    │             │    │             │
-               └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
